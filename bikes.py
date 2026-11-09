@@ -8,4 +8,5 @@ class Bike:
             return 5
         return 2
     def countcost(self, time):
-        pass
+        self.time = time
+        return time * self.get_p(self.type)
