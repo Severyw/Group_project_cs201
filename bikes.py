@@ -5,7 +5,7 @@ class Bike:
         self.type = type
         self.id = id
         self.time = 0
-    def get_p(self, type):
+    def get_p(self, type=None):
         return PRICES[type or self.type]
     def countcost(self, time):
         self.time = time
