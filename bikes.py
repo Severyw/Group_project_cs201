@@ -1,3 +1,5 @@
+prices = {"normal": 2, "electric": 5}
+
 class Bike:
     def __init__(self, type, id, time = 0):
         self.type = type
