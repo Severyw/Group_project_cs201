@@ -1,7 +1,7 @@
-from bike import Bike
-from client import Client
-from station import Station
-from trips import take_bike, take_bike_by_type, return_bike, total_revenue
+from bike.py import Bike
+from Client.py import Client
+from station.py import Station
+from trips.py import take_bike, take_bike_by_type, return_bike, total_revenue
 
 
 def build_report(stations):
