@@ -1,23 +1,23 @@
-from bikes.py import Bike
-from Client.py import Client
-from station.py import Station
-from trips.py import takebike, bytypetake, returnbike, balik
+from bikes import Bike
+from Client import Client
+from station import Station
+from trips import takebike, bytypetake, returnbike, summoney, balik
 
 
 def build_report(stations):
     lines = ["=== Звіт адміністратора ==="]
     for s in stations:
         lines.append(f"Станція {s.name}: {s.count()} велосипедів")
-    lines.append(f"Загальна виручка мережі: {total_revenue()} грн")
+    lines.append(f"Загальна виручка мережі: {summoney()} грн")
     return "\n".join(lines)
 
 
 def ride(client, station_from, station_to, minutes, type):
-    bike = take_bike_by_type(station_from, type)
+    bike = bytypetake(station_from, type)
     if bike is None:
         print(f"{client.name}: на станції {station_from.name} немає велосипедів типу {type}.")
         return
-    cost = return_bike(client, bike, station_to, minutes)
+    cost = returnbike(client, bike, station_to, minutes)
     if cost is None:
         print(f"{client.name}: не вистачило грошей за поїздку на велосипеді №{bike.id}.")
     else:
@@ -47,11 +47,10 @@ def main():
 
     print(build_report([a, b]))
 
-
     assert a.count() + b.count() == 5
-    assert total_revenue() == 150
+    assert summoney() == 150
     assert Bike("electric", 99).countcost(2) == 10
-    assert take_bike(a, 12345) is None
+    assert takebike(a, 12345) is None
 
 
 if __name__ == "__main__":
