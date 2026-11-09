@@ -10,7 +10,7 @@ def returnbike(client, bike, station, minutes):
     station.breturn(bike)
     cost = bike.countcost(minutes)
     if client.pay(cost):
-        _revenue.append(cost)
+        balik.append(cost)
         return cost
     return None
 
