@@ -1,14 +1,12 @@
-prices = {"normal": 2, "electric": 5}
+PRICES = {"normal": 2, "electric": 5}
 
 class Bike:
-    def __init__(self, type, id, time = 0):
+    def __init__(self, type, id):
         self.type = type
         self.id = id
-        self.time = time
+        self.time = 0
     def get_p(self, type):
-        if type == "electric":
-            return 5
-        return 2
+        return PRICES[type or self.type]
     def countcost(self, time):
         self.time = time
         return time * self.get_p(self.type)
