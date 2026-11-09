@@ -4,20 +4,13 @@ class Client:
         self.balance = balance
 
     def can_pay(self, price):         # перевірка чи достатньо балансу
-        if_can_pay = self.balance >= price
-        return if_can_pay
+        return self.balance >= price
 
     def pay(self, price):            # Плата за поїздку
+        if not self.can_pay(price):
+            return False
         self.balance -= price
+        return True
 
-if __name__ == "__main__":
-    name = Client("John", 100)
-    paid = name.can_pay(500)
-    if paid:
-        print("Payment successful")
-        name.pay(500)
-    else:
-        print("Insufficient funds")
 
-    print(name.balance)
 
