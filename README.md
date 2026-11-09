@@ -19,5 +19,5 @@ Methods: btake(id), btake_type(type), breturn(bike), count()
 Северин: Station
 Олександр: main
 Дмитро: Client
-Сергій: readme, презентація
+Сергій: readme, trips**
 Святослав: Bike
