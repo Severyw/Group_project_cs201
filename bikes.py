@@ -1,7 +1,11 @@
 class Bike:
     def __init__(self, type, id, time = 0):
-        pass
+        self.type = type
+        self.id = id
+        self.time = time
     def get_p(self, type):
-        pass
+        if type == "electric":
+            return 5
+        return 2
     def countcost(self, time):
         pass
